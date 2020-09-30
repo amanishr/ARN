@@ -1,0 +1,9 @@
+/pyutils/mask-faster-rcnn/tensorboard
+/pyutils/mask-faster-rcnn/output
+/cache
+/data
+*.ipynb_checkpoints
+*.pyc
+*.so
+*.pth
+*.gz

@@ -12,7 +12,8 @@ import json
 import time
 import numpy as np
 import pprint
-from scipy.misc import imread, imresize
+# changes by me
+# from scipy.misc import imread, imresize
 import cv2
 
 import torch

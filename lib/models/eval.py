@@ -65,13 +65,17 @@ def eval_split(loader, model, split, opt):
 
             for i, sent_id in enumerate(sent_ids):
                 enc_label = enc_labels[i:i + 1]
-                max_len = (enc_label != 0).sum().data[0]
+# changes by me
+                max_len = (enc_label != 0).sum().data
+#                 max_len = (enc_label != 0).sum().data[0]
                 enc_label = enc_label[:, :max_len]
                 dec_label = dec_labels[i:i + 1]
                 dec_label = dec_label[:, :max_len]
 
                 label = labels[i:i + 1]
-                max_len = (label != 0).sum().data[0]
+# changes by me
+                max_len = (label != 0).sum().data
+#                 max_len = (label != 0).sum().data[0]
                 label = label[:, :max_len]
 
                 att_label = att_labels[i:i + 1]
@@ -88,7 +92,9 @@ def eval_split(loader, model, split, opt):
                 scores = scores.squeeze(0).data.cpu().numpy()
                 rel_ixs = rel_ixs.squeeze(0).data.cpu().numpy().tolist()
 
-                loss = loss.data[0].item()
+# changes by me
+                loss = loss.data.item()
+#                 loss = loss.data[0].item()
 
                 if opt['loss_combined'] == 0:
                     vis_res_loss=vis_res_loss.data[0].item()

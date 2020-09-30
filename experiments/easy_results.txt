@@ -1,0 +1,4 @@
+[base]: [refcoco_unc][testB], id[base]'s acc is 15.07%
+[base]: [refcoco_unc][testB], id[base]'s acc is 32.48%
+[base]: [refcoco_unc][testA], id[base]'s acc is 34.22%
+[base]: [refcoco_unc][val], id[base]'s acc is 32.67%

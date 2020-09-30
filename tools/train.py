@@ -18,6 +18,9 @@ from opt import parse_opt
 
 import torch
 
+from tensorboardX import SummaryWriter
+import logging
+
 def main(args):
     opt = vars(args)
     # initialize
@@ -25,6 +28,11 @@ def main(args):
     checkpoint_dir = osp.join(opt['checkpoint_path'], opt['dataset_splitBy'], opt['exp_id'])
     if not osp.isdir(checkpoint_dir):
         os.makedirs(checkpoint_dir)
+    
+    # Logging
+    logging.basicConfig(level=logging.DEBUG, filename=checkpoint_dir+'/logs.txt', filemode="a+",
+                        format="%(asctime)-15s %(levelname)-8s %(message)s")
+    writer = SummaryWriter(checkpoint_dir+'/tensorboard')
 
     # set random seed
     torch.manual_seed(opt['seed'])
@@ -110,11 +118,29 @@ def main(args):
 
         data_time += T['data']
         model_time += T['model']
-
+        
+        # TB entry
+        tb = {}
+#         tb['scores'] = scores
+        tb['loss'] = loss
+        tb['vis_res_loss'] = vis_res_loss
+        tb['att_res_loss'] = att_res_loss
+        tb['lang_res_loss'] = lang_res_loss
+        for entry in list(tb):
+#             print(entry)
+#             print(tb[entry])
+            writer.add_scalar('Train/'+ entry, tb[entry], iter)
+        
         if iter % opt['losses_log_every'] == 0:
-            loss_history[iter]=(loss.data[0]).item()
+# changes by me
+            loss_history[iter]=(loss.data).item()
+#             loss_history[iter]=(loss.data[0]).item()
             print('iter[%s](epoch[%s]), train_loss=%.3f, lr=%.2E, data:%.2fs/iter, model:%.2fs/iter' \
-                  % (iter, epoch, loss.data[0].item(), lr, data_time / opt['losses_log_every'], model_time/opt['losses_log_every']))
+                  % (iter, epoch, loss.data.item(), lr, data_time / opt['losses_log_every'], model_time/opt['losses_log_every']))
+            logging.info('iter[%s](epoch[%s]), train_loss=%.3f, lr=%.2E, data:%.2fs/iter, model:%.2fs/iter' \
+                  % (iter, epoch, loss.data.item(), lr, data_time / opt['losses_log_every'], model_time/opt['losses_log_every']))
+#             print('iter[%s](epoch[%s]), train_loss=%.3f, lr=%.2E, data:%.2fs/iter, model:%.2fs/iter' \
+#                   % (iter, epoch, loss.data[0].item(), lr, data_time / opt['losses_log_every'], model_time/opt['losses_log_every']))
             data_time, model_time = 0, 0
 
         if opt['learning_rate_decay_start'] > 0 and iter > opt['learning_rate_decay_start']:
@@ -124,12 +150,18 @@ def main(args):
             model_utils.set_lr(optimizer, lr)
 
         if (iter) % opt['save_checkpoint_every'] == 0 or iter == opt['max_iters']:
-            val_loss, acc, predictions, val_vis_res_loss, val_lang_res_loss = eval.eval_split(loader, model, 'testB', opt)
+            val_loss, acc, predictions, val_vis_res_loss, val_lang_res_loss = eval.eval_split(loader, model, 'val', opt)
             val_loss_history[iter] = val_loss
             val_result_history[iter] = {'loss': val_loss, 'accuracy': acc}
             val_accuracies += [(iter, acc)]
             print('validation loss: %.2f' % val_loss)
             print('validation acc : %.2f%%\n' % (acc * 100.0))
+            logging.info('validation loss: %.2f' % val_loss)
+            logging.info('validation acc : %.2f%%\n' % (acc * 100.0))
+            
+            # TB entry
+            writer.add_scalar('Val/loss', val_loss, iter)
+            writer.add_scalar('Val/acc', acc*100.0, iter)
 
             current_score = acc
             if best_val_score is None or current_score > best_val_score:
@@ -141,6 +173,7 @@ def main(args):
                 checkpoint['opt'] = opt
                 torch.save(checkpoint, checkpoint_path)
                 print('model saved to %s' % checkpoint_path)
+                logging.info('model saved to %s' % checkpoint_path)
 
             infos['iter'] = iter
             infos['epoch'] = epoch

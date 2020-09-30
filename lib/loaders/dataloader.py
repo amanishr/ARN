@@ -325,7 +325,9 @@ class DataLoader(Loader):
 
         labels = np.vstack([self.fetch_seq(sent_id) for sent_id in img_sent_ids])
         labels = Variable(torch.from_numpy(labels).long().cuda())
-        max_len = (labels!=0).sum(1).max().data[0]
+# changes by me
+        max_len = (labels!=0).sum(1).max().data
+#         max_len = (labels!=0).sum(1).max().data[0]
         labels = labels[:, :max_len]
 
         start_words = np.ones([labels.size(0), 1], dtype=int)*(self.word_to_ix['<BOS>'])
@@ -407,7 +409,9 @@ class DataLoader(Loader):
 
         labels = np.vstack([self.fetch_seq(sent_id) for sent_id in sent_ids])
         labels = Variable(torch.from_numpy(labels).long().cuda())
-        max_len = (labels!=0).sum(1).max().data[0]
+# changes by me
+        max_len = (labels!=0).sum(1).max().data
+#         max_len = (labels!=0).sum(1).max().data[0]
         labels = labels[:, :max_len]
 
         start_words = np.ones([labels.size(0), 1], dtype=int)*(self.word_to_ix['<BOS>'])
