@@ -51,6 +51,10 @@ def parse_opt():
     parser.add_argument('--att_res_weight', type=float, default=1.0, help='weight on attribute reconstruction loss')
     parser.add_argument('--loss_combined', type=float, default=5.0, help='weight on loss_combined')
     parser.add_argument('--loss_divided', type=float, default=1.0, help='weight on loss_divided' )
+    # No-construction settings
+    parser.add_argument('--nocon_scale', type=float, default=1.0, help='weight of no-construction loss')
+    parser.add_argument('--num_con_iter', type=int, default=400, help='Number of iterations to train reconstruction')
+    parser.add_argument('--num_nocon_iter', type=int, default=100, help='Number of iterations to train no-construction')
     # Optimization: General
     parser.add_argument('--max_iters', type=int, default=30000, help='max number of iterations to run')
     parser.add_argument('--sample_ratio', type=float, default=0.3, help='ratio of same-type objects over different-type objects')

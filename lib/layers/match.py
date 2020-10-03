@@ -18,6 +18,7 @@ class Score(nn.Module):
                                       nn.ReLU(),
                                       nn.Linear(jemb_dim, 1))
         self.softmax = nn.Softmax(dim=1)
+        self.sigmoid = nn.Sigmoid()
         self.lang_dim = lang_dim
         self.vis_dim = vis_dim
 
@@ -30,7 +31,8 @@ class Score(nn.Module):
 
         ann_attn = self.feat_fuse(torch.cat([visual_input, lang_input], 2))
 
-        ann_attn = self.softmax(ann_attn.view(sent_num, ann_num))
+#         ann_attn = self.softmax(ann_attn.view(sent_num, ann_num))
+        ann_attn = self.sigmoid(ann_attn.view(sent_num, ann_num))
         ann_attn = ann_attn.unsqueeze(2)
 
         return ann_attn
@@ -44,6 +46,7 @@ class RelationScore(nn.Module):
                                       nn.ReLU(),
                                       nn.Linear(jemb_dim, 1))
         self.softmax = nn.Softmax(dim=1)
+        self.sigmoid = nn.Sigmoid()
         self.lang_dim = lang_dim
         self.vis_dim = vis_dim
 
@@ -66,7 +69,8 @@ class RelationScore(nn.Module):
 
         ann_attn = masks * ann_attn
         ann_attn, ixs = torch.max(ann_attn, 2)
-        ann_attn = self.softmax(ann_attn)
+#         ann_attn = self.softmax(ann_attn)
+        ann_attn = self.sigmoid(ann_attn)
         ann_attn = ann_attn.unsqueeze(2)
 
         return ann_attn, ixs
@@ -125,9 +129,9 @@ class AdaptiveReconstruct(nn.Module):
         self.lang_res_loss = AdapLangReconstructLoss(opt)
         self.rec_loss = LangReconstructionLoss(opt)
 
-        self.sub_mlp = nn.Sequential(nn.Linear(opt['jemb_dim'], self.pool5_dim+self.fc7_dim))
-        self.loc_mlp = nn.Sequential(nn.Linear(opt['jemb_dim'], 25+5))
-        self.rel_mlp = nn.Sequential(nn.Linear(opt['jemb_dim'], self.fc7_dim+5))
+#         self.sub_mlp = nn.Sequential(nn.Linear(opt['jemb_dim'], self.pool5_dim+self.fc7_dim))
+#         self.loc_mlp = nn.Sequential(nn.Linear(opt['jemb_dim'], 25+5))
+#         self.rel_mlp = nn.Sequential(nn.Linear(opt['jemb_dim'], self.fc7_dim+5))
 
         self.feat_fuse = nn.Sequential(
             nn.Linear(self.fc7_dim + self.pool5_dim + 25 + 5 + self.fc7_dim + 5, opt['jemb_dim']),
@@ -174,17 +178,15 @@ class AdaptiveReconstruct(nn.Module):
             vis_res_loss = self.vis_res_loss(sub_phrase_emb, sub_phrase_recons, loc_phrase_emb,
                                              loc_phrase_recons, rel_phrase_emb, rel_phrase_recons, weights)
             loss = self.vis_res_weight * vis_res_loss
-
+            
         if self.lang_res_weight > 0:
             lang_res_loss = self.lang_res_loss(sub_phrase_emb, loc_phrase_emb, rel_phrase_emb, enc_labels,
                                                dec_labels)
 
             loss += self.lang_res_weight * lang_res_loss
 
-
         # combined_loss
-        loss += self.loss_divided*loss
-
+        loss = self.loss_divided*loss
         ann_score = total_ann_score.unsqueeze(1)
 
         ixs = rel_ixs.view(sent_num, ann_num, 1).unsqueeze(3).expand(sent_num, ann_num, 1, self.fc7_dim + 5)
@@ -197,13 +199,75 @@ class AdaptiveReconstruct(nn.Module):
         fuse_feats = self.feat_fuse(fuse_feats)
         rec_loss = self.rec_loss(fuse_feats, enc_labels, dec_labels)
         loss += self.loss_combined * rec_loss
-
+        
         if self.att_res_weight > 0:
             att_scores, att_res_loss = self.att_res_loss(sub_feats, total_ann_score, att_labels, select_ixs, att_weights)
             loss += self.att_res_weight * att_res_loss
+ 
+        # Non-construction loss
+        total_ann_score_nocon = (weights_expand * torch.cat([1-sub_ann_attn, 1-loc_ann_attn, 1-rel_ann_attn], 2)).sum(2)
 
-        return total_ann_score, loss, rel_ixs, sub_attn, loc_attn, rel_attn, weights, \
-               vis_res_loss, att_res_loss, lang_res_loss
+        loss_nocon = 0
+        att_res_loss_nocon = 0
+        lang_res_loss_nocon = 0
+        vis_res_loss_nocon = 0
+
+        # divided_loss
+        sub_phrase_recons_nocon = self.sub_decoder(sub_feats, total_ann_score_nocon)
+        loc_phrase_recons_nocon = self.loc_decoder(loc_feats, total_ann_score_nocon)
+        rel_phrase_recons_nocon = self.rel_decoder(rel_feats, total_ann_score_nocon, rel_ixs)
+
+        if self.vis_res_weight > 0:
+            vis_res_loss_nocon = self.vis_res_loss(sub_phrase_emb, sub_phrase_recons_nocon, loc_phrase_emb,
+                                             loc_phrase_recons_nocon, rel_phrase_emb, rel_phrase_recons_nocon, weights)
+            loss_nocon = self.vis_res_weight * vis_res_loss_nocon
+
+        # combined_loss
+        loss_nocon = self.loss_divided*loss_nocon
+
+        ann_score_nocon = total_ann_score_nocon.unsqueeze(1)
+
+        fuse_feats = torch.cat([sub_feats, loc_feats, rel_feats_max], 2)
+        fuse_feats_nocon = torch.bmm(ann_score_nocon, fuse_feats)
+        fuse_feats_nocon = fuse_feats_nocon.squeeze(1)
+        fuse_feats_nocon = self.feat_fuse(fuse_feats_nocon)
+        rec_loss_nocon = self.rec_loss(fuse_feats_nocon, enc_labels, dec_labels)
+        loss_nocon += self.loss_combined * rec_loss_nocon
+
+        if self.att_res_weight > 0:
+            att_scores_nocon, att_res_loss_nocon = self.att_res_loss(sub_feats, total_ann_score_nocon, att_labels, select_ixs, att_weights)
+            loss_nocon += self.att_res_weight * att_res_loss_nocon
+            
+        losses = {}
+        losses['loss'] = loss
+        losses['vis_res_loss'] = vis_res_loss
+        losses['att_res_loss'] = att_res_loss
+        losses['lang_res_loss'] = lang_res_loss
+        losses['rec_loss'] = rec_loss
+        losses['loss_nocon'] = loss_nocon
+        losses['vis_res_loss_nocon'] = vis_res_loss_nocon
+        losses['att_res_loss_nocon'] = att_res_loss_nocon
+        losses['lang_res_loss_nocon'] = lang_res_loss_nocon
+        losses['rec_loss_nocon'] = rec_loss_nocon
+        return total_ann_score, losses, rel_ixs, sub_attn, loc_attn, rel_attn, weights
+    
+    def recon_zero_grad(self):
+        self.rnn_encoder.zero_grad()
+        self.weight_fc.zero_grad()
+        self.sub_attn.zero_grad()
+        self.loc_attn.zero_grad()
+        self.rel_attn.zero_grad()
+        self.sub_encoder.zero_grad()
+        self.loc_encoder.zero_grad()
+        self.rel_encoder.zero_grad()
+        self.sub_decoder.zero_grad()
+        self.loc_decoder.zero_grad()
+        self.rel_decoder.zero_grad()
+        self.vis_res_loss.zero_grad()
+        self.feat_fuse.zero_grad()
+        self.rec_loss.zero_grad()
+        self.att_res_loss.zero_grad()
+        
 
 
 

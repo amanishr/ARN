@@ -85,10 +85,11 @@ def eval_split(loader, model, split, opt):
                     select_ix = torch.LongTensor().cuda()
 
                 tic = time.time()
-                scores, loss, rel_ixs, sub_attn, loc_attn, rel_attn, weights, vis_res_loss, att_res_loss, lang_res_loss = \
+                scores, losses, rel_ixs, sub_attn, loc_attn, rel_attn, weights = \
                     model(Feats['pool5'], Feats['fc7'], Feats['lfeats'], Feats['dif_lfeats'],
                           Feats['cxt_fc7'], Feats['cxt_lfeats'], label, enc_label, dec_label, att_label, select_ix, att_weights)
-
+                
+                loss, vis_res_loss, att_res_loss, lang_res_loss = losses['loss'], losses['vis_res_loss'], losses['att_res_loss'], losses['lang_res_loss']
                 scores = scores.squeeze(0).data.cpu().numpy()
                 rel_ixs = rel_ixs.squeeze(0).data.cpu().numpy().tolist()
 

@@ -32,6 +32,7 @@ def main(args):
     # Logging
     logging.basicConfig(level=logging.DEBUG, filename=checkpoint_dir+'/logs.txt', filemode="a+",
                         format="%(asctime)-15s %(levelname)-8s %(message)s")
+    logging.info(vars(args))
     writer = SummaryWriter(checkpoint_dir+'/tensorboard')
 
     # set random seed
@@ -107,10 +108,17 @@ def main(args):
         T['data'] = time.time() - tic
 
         tic = time.time()
-        scores, loss,_,_,_,_,_,vis_res_loss, att_res_loss, lang_res_loss = model(Feats['pool5'], Feats['fc7'], Feats['lfeats'], Feats['dif_lfeats'],
+        scores, losses,_,_,_,_,_ = model(Feats['pool5'], Feats['fc7'], Feats['lfeats'], Feats['dif_lfeats'],
                                          Feats['cxt_fc7'], Feats['cxt_lfeats'], labels, enc_labels, dec_labels, att_labels, select_ixs, att_weights)
-
-        loss.backward()
+        
+        if(iter%(opt['num_con_iter']+opt['num_nocon_iter']) < opt['num_con_iter']):
+            total_loss = losses['loss'] + opt['nocon_scale'] * losses['loss_nocon']
+            total_loss.backward()
+        else:
+            total_loss = -losses['loss_nocon']
+            total_loss.backward()
+            model.recon_zero_grad()
+            
         model_utils.clip_gradient(optimizer, opt['grad_clip'])
         optimizer.step()
         T['model'] = time.time()-tic
@@ -119,28 +127,28 @@ def main(args):
         data_time += T['data']
         model_time += T['model']
         
+        loss = losses['loss']
+        loss_nocon = losses['loss_nocon']
         # TB entry
-        tb = {}
+        tb = losses
 #         tb['scores'] = scores
-        tb['loss'] = loss
-        tb['vis_res_loss'] = vis_res_loss
-        tb['att_res_loss'] = att_res_loss
-        tb['lang_res_loss'] = lang_res_loss
-        for entry in list(tb):
-#             print(entry)
-#             print(tb[entry])
-            writer.add_scalar('Train/'+ entry, tb[entry], iter)
+#         tb['loss'] = loss
+#         tb['vis_res_loss'] = vis_res_loss
+#         tb['att_res_loss'] = att_res_loss
+#         tb['lang_res_loss'] = lang_res_loss
         
         if iter % opt['losses_log_every'] == 0:
 # changes by me
             loss_history[iter]=(loss.data).item()
 #             loss_history[iter]=(loss.data[0]).item()
-            print('iter[%s](epoch[%s]), train_loss=%.3f, lr=%.2E, data:%.2fs/iter, model:%.2fs/iter' \
-                  % (iter, epoch, loss.data.item(), lr, data_time / opt['losses_log_every'], model_time/opt['losses_log_every']))
-            logging.info('iter[%s](epoch[%s]), train_loss=%.3f, lr=%.2E, data:%.2fs/iter, model:%.2fs/iter' \
-                  % (iter, epoch, loss.data.item(), lr, data_time / opt['losses_log_every'], model_time/opt['losses_log_every']))
+            print('iter[%s](epoch[%s]), train_loss=%.3f, train_loss_nocon=%.3f, lr=%.2E, data:%.2fs/iter, model:%.2fs/iter' \
+                  % (iter, epoch, loss.data.item(), loss_nocon.data.item(), lr, data_time / opt['losses_log_every'], model_time/opt['losses_log_every']))
+            logging.info('iter[%s](epoch[%s]), train_loss=%.3f, train_loss_nocon=%.3f, lr=%.2E, data:%.2fs/iter, model:%.2fs/iter' \
+                  % (iter, epoch, loss.data.item(), loss_nocon.data.item(), lr, data_time / opt['losses_log_every'], model_time/opt['losses_log_every']))
 #             print('iter[%s](epoch[%s]), train_loss=%.3f, lr=%.2E, data:%.2fs/iter, model:%.2fs/iter' \
 #                   % (iter, epoch, loss.data[0].item(), lr, data_time / opt['losses_log_every'], model_time/opt['losses_log_every']))
+            for entry in list(tb):
+                writer.add_scalar('Train/'+ entry, tb[entry], iter)
             data_time, model_time = 0, 0
 
         if opt['learning_rate_decay_start'] > 0 and iter > opt['learning_rate_decay_start']:
@@ -191,11 +199,11 @@ def main(args):
             with open(osp.join(checkpoint_dir, opt['id'] + '.json'), 'w', encoding="utf8") as io:
                 json.dump(infos, io)
 
-        iter += 1
         if wrapped:
             epoch += 1
         if iter >= opt['max_iters'] and opt['max_iters'] > 0:
             break
+        iter += 1
 
 if __name__ == '__main__':
     args = parse_opt()
