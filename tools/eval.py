@@ -69,6 +69,7 @@ def evaluate(params):
     split = params['split']
     model_opt['num_sents'] = params['num_sents']
     model_opt['verbose'] = params['verbose']
+    model_opt['use_IoU'] = params['use_IoU']
 
     val_loss, acc, predictions, _, _ = eval.eval_split(loader, model, split, model_opt)
 
@@ -100,6 +101,7 @@ if __name__ == '__main__':
     parser.add_argument('--num_sents', type=int, default=-1,
                         help='how many sentences to use when periodically evaluating the loss? (-1=all)')
     parser.add_argument('--verbose', type=int, default=1, help='if we want to print the testing progress')
+    parser.add_argument('--use_IoU', type=int, default=1, help='Whether to use IoU evaluation or not')
     args = parser.parse_args()
     params = vars(args)
 

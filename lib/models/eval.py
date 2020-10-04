@@ -43,7 +43,9 @@ def eval_split(loader, model, split, opt):
     loader.resetIterator(split)
     loss_sum = 0
     loss_evals = 0
-    acc = 0
+    num_pred = 10
+    acc = np.zeros(num_pred)
+    scores_avg = np.zeros(num_pred)
     predictions = []
     finish_flag = False
     model_time = 0
@@ -103,34 +105,37 @@ def eval_split(loader, model, split, opt):
                 vis_res_loss_sum += vis_res_loss
                 lang_res_loss_sum += lang_res_loss
 
-                pred_ix = np.argmax(scores)
+#                 pred_ix = np.argmax(scores)\
+                pred_ix = np.argsort(scores)[::-1]
                 gd_ix = data['gd_ixs'][i]
                 loss_sum += loss
                 loss_evals += 1
 
-                pred_box = loader.Anns[ann_ids[pred_ix]]['box']
+                pred_box = loader.Anns[ann_ids[pred_ix[0]]]['box']
                 gd_box = data['gd_boxes'][i]
 
                 if opt['use_IoU'] > 0:
                     if computeIoU(pred_box, gd_box) >= 0.5:
-                        acc += 1
+                        acc[0] += 1
                 else:
-                    if pred_ix == gd_ix:
-                        acc += 1
+                    for i in range(min(num_pred,len(pred_ix))):
+                        scores_avg[i] += scores[pred_ix[i]]
+                        if pred_ix[i] == gd_ix:
+                            acc[i] += 1
 
-                rel_ix = rel_ixs[pred_ix]
+                rel_ix = rel_ixs[pred_ix[0]]
 
                 entry = {}
                 entry['sent_id'] = sent_id
                 entry['sent'] = loader.decode_labels(label.data.cpu().numpy())[0]
                 entry['gd_ann_id'] = data['ann_ids'][gd_ix]
-                entry['pred_ann_id'] = data['ann_ids'][pred_ix]
-                entry['pred_score'] = scores.tolist()[pred_ix]
+                entry['pred_ann_id'] = data['ann_ids'][pred_ix[0]]
+                entry['pred_score'] = scores.tolist()[pred_ix[0]]
 
                 entry['sub_attn'] = sub_attn.data.cpu().numpy().tolist()
                 entry['loc_attn'] = loc_attn.data.cpu().numpy().tolist()
                 entry['rel_attn'] = rel_attn.data.cpu().numpy().tolist()
-                entry['rel_ann_id'] = data['cxt_ann_ids'][pred_ix][rel_ix]
+                entry['rel_ann_id'] = data['cxt_ann_ids'][pred_ix[0]][rel_ix]
 
                 entry['weights'] = weights.data.cpu().numpy().tolist()
 
@@ -145,13 +150,18 @@ def eval_split(loader, model, split, opt):
             ix1 = data['bounds']['it_max']
             if verbose:
                 print('evaluating [%s] ... image[%d/%d]\'s sents, acc=%.2f%%, (%.4f), model time (per sent) is %.2fs' % \
-                      (split, ix0, ix1, acc*100.0/loss_evals, loss, model_time/len(sent_ids)))
+                      (split, ix0, ix1, acc[0]*100.0/loss_evals, loss, model_time/len(sent_ids)))
             model_time = 0
 
             if finish_flag or data['bounds']['wrapped']:
                 break
-
-    return loss_sum / loss_evals, acc / loss_evals, predictions, \
+                
+    acc = (acc*100.0)/loss_evals
+    for i in range(num_pred):
+        print("Accuracy of prediction %s is %.2f"%(i,acc[i]))
+        print("Score of prediction %s is %.2f"%(i,scores_avg[i]))
+        
+    return loss_sum / loss_evals, acc[0] / 100.0, predictions, \
            vis_res_loss_sum / loss_evals, lang_res_loss_sum / loss_evals
 
 

@@ -1,0 +1,360 @@
+2020-10-04 01:55:19,587 INFO     {'dataset': 'refcoco', 'splitBy': 'unc', 'start_from': None, 'imdb_name': 'coco_minus_refer', 'net_name': 'res101', 'iters': 1250000, 'tag': 'notime', 'vis_feats_type': 'res101', 'visual_sample_ratio': 0.3, 'visual_fuse_mode': 'concat', 'visual_init_norm': 20, 'visual_use_bn': -1, 'visual_use_cxt': 1, 'visual_cxt_type': 'frcn', 'visual_drop_out': 0.2, 'window_scale': 2.5, 'with_st': 1, 'num_cxt': 5, 'word_embedding_size': 512, 'word_vec_size': 512, 'word_drop_out': 0.5, 'bidirectional': 1, 'rnn_hidden_size': 512, 'rnn_type': 'lstm', 'rnn_drop_out': 0.2, 'rnn_num_layers': 1, 'variable_lengths': 1, 'jemb_drop_out': 0.1, 'jemb_dim': 512, 'decode_bidirectional': 0, 'att_weight': 1.0, 'visual_rank_weight': 1.0, 'lang_rank_weight': 1.0, 'margin': 0.1, 'lang_res_weight': 1.0, 'vis_res_weight': 0.01, 'att_res_weight': 1.0, 'loss_combined': 5.0, 'loss_divided': 1.0, 'nocon_scale': 0.0, 'num_con_iter': 500, 'num_nocon_iter': 500, 'max_iters': 90000, 'sample_ratio': 0.3, 'grad_clip': 0.1, 'seq_per_ref': 3, 'learning_rate_decay_start': 8000, 'learning_rate_decay_every': 8000, 'optim_epsilon': 1e-08, 'learning_rate': 0.0004, 'optim_alpha': 0.8, 'optim_beta': 0.999, 'weight_decay': 0.0005, 'num_sents': -1, 'save_checkpoint_every': 2500, 'checkpoint_path': 'output', 'language_eval': 0, 'losses_log_every': 100, 'load_best_score': 1, 'use_IoU': 1, 'id': 'mrcn_cmr_with_st', 'seed': 24, 'gpuid': 0, 'exp_id': 'minmax4', 'dataset_splitBy': 'refcoco_unc'}
+2020-10-04 01:55:25,714 INFO     iter[0](epoch[0]), train_loss=335.498, train_loss_nocon=330.742, lr=4.00E-04, data:0.00s/iter, model:0.00s/iter
+2020-10-04 01:57:40,387 INFO     validation loss: 199.67
+2020-10-04 01:57:40,387 INFO     validation acc : 15.91%
+
+2020-10-04 01:57:40,534 INFO     model saved to output/refcoco_unc/minmax4/mrcn_cmr_with_st.pth
+2020-10-04 01:57:48,253 INFO     iter[100](epoch[0]), train_loss=29.632, train_loss_nocon=25.648, lr=4.00E-04, data:0.02s/iter, model:0.05s/iter
+2020-10-04 01:57:56,053 INFO     iter[200](epoch[0]), train_loss=24.935, train_loss_nocon=609.010, lr=4.00E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 01:58:03,783 INFO     iter[300](epoch[0]), train_loss=33.170, train_loss_nocon=170.401, lr=4.00E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 01:58:10,925 INFO     iter[400](epoch[0]), train_loss=31.387, train_loss_nocon=27.880, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:58:18,382 INFO     iter[500](epoch[0]), train_loss=20.799, train_loss_nocon=33.781, lr=4.00E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 01:58:25,510 INFO     iter[600](epoch[0]), train_loss=31.288, train_loss_nocon=106.879, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:58:32,061 INFO     iter[700](epoch[0]), train_loss=28.642, train_loss_nocon=30.742, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:58:39,062 INFO     iter[800](epoch[0]), train_loss=38.335, train_loss_nocon=92.216, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:58:45,596 INFO     iter[900](epoch[0]), train_loss=34.519, train_loss_nocon=133.963, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:58:52,297 INFO     iter[1000](epoch[0]), train_loss=26.267, train_loss_nocon=52.857, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:58:59,361 INFO     iter[1100](epoch[0]), train_loss=31.359, train_loss_nocon=74.078, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:59:06,610 INFO     iter[1200](epoch[0]), train_loss=23.343, train_loss_nocon=45.426, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:59:13,864 INFO     iter[1300](epoch[0]), train_loss=25.717, train_loss_nocon=37.835, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:59:21,010 INFO     iter[1400](epoch[0]), train_loss=37.263, train_loss_nocon=30.782, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:59:28,224 INFO     iter[1500](epoch[0]), train_loss=29.238, train_loss_nocon=25.900, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:59:34,754 INFO     iter[1600](epoch[0]), train_loss=28.867, train_loss_nocon=34.084, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:59:41,713 INFO     iter[1700](epoch[0]), train_loss=28.105, train_loss_nocon=94.182, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:59:48,430 INFO     iter[1800](epoch[0]), train_loss=40.985, train_loss_nocon=36.820, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 01:59:55,427 INFO     iter[1900](epoch[0]), train_loss=37.397, train_loss_nocon=35.923, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:00:02,111 INFO     iter[2000](epoch[0]), train_loss=29.343, train_loss_nocon=26.720, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:00:09,210 INFO     iter[2100](epoch[0]), train_loss=32.342, train_loss_nocon=27.884, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:00:16,557 INFO     iter[2200](epoch[0]), train_loss=22.291, train_loss_nocon=51.842, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:00:23,779 INFO     iter[2300](epoch[0]), train_loss=26.814, train_loss_nocon=23.600, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:00:30,935 INFO     iter[2400](epoch[0]), train_loss=24.635, train_loss_nocon=46.704, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:00:38,189 INFO     iter[2500](epoch[0]), train_loss=24.785, train_loss_nocon=29.561, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:02:50,581 INFO     validation loss: 27.41
+2020-10-04 02:02:50,581 INFO     validation acc : 20.68%
+
+2020-10-04 02:02:50,996 INFO     model saved to output/refcoco_unc/minmax4/mrcn_cmr_with_st.pth
+2020-10-04 02:02:58,224 INFO     iter[2600](epoch[0]), train_loss=33.244, train_loss_nocon=67.064, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:03:05,111 INFO     iter[2700](epoch[0]), train_loss=21.567, train_loss_nocon=22.504, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:03:11,812 INFO     iter[2800](epoch[0]), train_loss=33.625, train_loss_nocon=36.280, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:03:18,133 INFO     iter[2900](epoch[0]), train_loss=25.061, train_loss_nocon=55.552, lr=4.00E-04, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:03:24,818 INFO     iter[3000](epoch[0]), train_loss=34.237, train_loss_nocon=31.823, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:03:32,528 INFO     iter[3100](epoch[0]), train_loss=23.207, train_loss_nocon=36.204, lr=4.00E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:03:39,836 INFO     iter[3200](epoch[0]), train_loss=29.764, train_loss_nocon=33.357, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:03:46,782 INFO     iter[3300](epoch[0]), train_loss=28.810, train_loss_nocon=31.497, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:03:54,157 INFO     iter[3400](epoch[0]), train_loss=15.859, train_loss_nocon=160.882, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:04:01,046 INFO     iter[3500](epoch[0]), train_loss=28.979, train_loss_nocon=63.569, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:04:07,998 INFO     iter[3600](epoch[0]), train_loss=29.551, train_loss_nocon=29.710, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:04:14,321 INFO     iter[3700](epoch[0]), train_loss=28.100, train_loss_nocon=59.076, lr=4.00E-04, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:04:20,778 INFO     iter[3800](epoch[0]), train_loss=38.624, train_loss_nocon=46.994, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:04:27,189 INFO     iter[3900](epoch[0]), train_loss=24.672, train_loss_nocon=24.347, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:04:33,762 INFO     iter[4000](epoch[0]), train_loss=30.159, train_loss_nocon=61.455, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:04:40,804 INFO     iter[4100](epoch[0]), train_loss=20.461, train_loss_nocon=19.458, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:04:47,867 INFO     iter[4200](epoch[0]), train_loss=26.706, train_loss_nocon=157.040, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:04:55,975 INFO     iter[4300](epoch[0]), train_loss=22.512, train_loss_nocon=19.953, lr=4.00E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:05:04,739 INFO     iter[4400](epoch[0]), train_loss=30.035, train_loss_nocon=27.133, lr=4.00E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:05:11,783 INFO     iter[4500](epoch[0]), train_loss=30.051, train_loss_nocon=27.216, lr=4.00E-04, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:05:18,601 INFO     iter[4600](epoch[0]), train_loss=37.575, train_loss_nocon=31.557, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:05:25,838 INFO     iter[4700](epoch[0]), train_loss=20.398, train_loss_nocon=18.737, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:05:33,103 INFO     iter[4800](epoch[0]), train_loss=25.780, train_loss_nocon=69.454, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:05:39,636 INFO     iter[4900](epoch[0]), train_loss=28.158, train_loss_nocon=31.975, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:05:46,047 INFO     iter[5000](epoch[0]), train_loss=28.814, train_loss_nocon=28.054, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:07:59,688 INFO     validation loss: 28.37
+2020-10-04 02:07:59,688 INFO     validation acc : 25.55%
+
+2020-10-04 02:08:00,081 INFO     model saved to output/refcoco_unc/minmax4/mrcn_cmr_with_st.pth
+2020-10-04 02:08:08,486 INFO     iter[5100](epoch[0]), train_loss=30.425, train_loss_nocon=154.701, lr=4.00E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:08:15,941 INFO     iter[5200](epoch[0]), train_loss=20.758, train_loss_nocon=23.476, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:08:23,107 INFO     iter[5300](epoch[0]), train_loss=27.146, train_loss_nocon=49.029, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:08:30,841 INFO     iter[5400](epoch[0]), train_loss=15.990, train_loss_nocon=20.854, lr=4.00E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:08:38,469 INFO     iter[5500](epoch[0]), train_loss=29.975, train_loss_nocon=65.250, lr=4.00E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:08:45,843 INFO     iter[5600](epoch[0]), train_loss=25.376, train_loss_nocon=35.494, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:08:52,713 INFO     iter[5700](epoch[0]), train_loss=30.586, train_loss_nocon=26.612, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:08:59,538 INFO     iter[5800](epoch[0]), train_loss=30.778, train_loss_nocon=108.928, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:09:06,397 INFO     iter[5900](epoch[0]), train_loss=26.936, train_loss_nocon=37.716, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:09:13,019 INFO     iter[6000](epoch[0]), train_loss=22.680, train_loss_nocon=30.061, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:09:20,546 INFO     iter[6100](epoch[0]), train_loss=27.941, train_loss_nocon=82.977, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:09:27,690 INFO     iter[6200](epoch[0]), train_loss=20.777, train_loss_nocon=103.174, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:09:34,609 INFO     iter[6300](epoch[0]), train_loss=28.430, train_loss_nocon=28.592, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:09:42,133 INFO     iter[6400](epoch[0]), train_loss=21.609, train_loss_nocon=25.206, lr=4.00E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:09:49,377 INFO     iter[6500](epoch[0]), train_loss=24.475, train_loss_nocon=29.871, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:09:56,192 INFO     iter[6600](epoch[0]), train_loss=27.071, train_loss_nocon=259.764, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:10:03,292 INFO     iter[6700](epoch[0]), train_loss=22.594, train_loss_nocon=24.787, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:10:09,848 INFO     iter[6800](epoch[0]), train_loss=31.861, train_loss_nocon=40.891, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:10:16,715 INFO     iter[6900](epoch[0]), train_loss=36.114, train_loss_nocon=775.639, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:10:23,236 INFO     iter[7000](epoch[0]), train_loss=19.174, train_loss_nocon=23.896, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:10:30,697 INFO     iter[7100](epoch[0]), train_loss=26.341, train_loss_nocon=68.078, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:10:38,642 INFO     iter[7200](epoch[0]), train_loss=34.152, train_loss_nocon=51.735, lr=4.00E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:10:45,756 INFO     iter[7300](epoch[0]), train_loss=25.633, train_loss_nocon=26.363, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:10:52,770 INFO     iter[7400](epoch[0]), train_loss=21.392, train_loss_nocon=41.074, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:10:59,709 INFO     iter[7500](epoch[0]), train_loss=23.959, train_loss_nocon=33.833, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:13:13,133 INFO     validation loss: 25.68
+2020-10-04 02:13:13,133 INFO     validation acc : 19.35%
+
+2020-10-04 02:13:20,329 INFO     iter[7600](epoch[0]), train_loss=22.038, train_loss_nocon=50.710, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:13:26,912 INFO     iter[7700](epoch[0]), train_loss=27.041, train_loss_nocon=68.840, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:13:33,286 INFO     iter[7800](epoch[0]), train_loss=42.842, train_loss_nocon=52.121, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:13:39,753 INFO     iter[7900](epoch[0]), train_loss=24.268, train_loss_nocon=43.160, lr=4.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:13:46,000 INFO     iter[8000](epoch[0]), train_loss=28.844, train_loss_nocon=26.911, lr=4.00E-04, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:13:53,293 INFO     iter[8100](epoch[0]), train_loss=23.536, train_loss_nocon=33.073, lr=3.89E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:14:00,165 INFO     iter[8200](epoch[0]), train_loss=23.170, train_loss_nocon=21.760, lr=3.78E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:14:07,158 INFO     iter[8300](epoch[0]), train_loss=15.284, train_loss_nocon=28.143, lr=3.67E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:14:13,965 INFO     iter[8400](epoch[0]), train_loss=29.582, train_loss_nocon=25.009, lr=3.57E-04, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:14:21,070 INFO     iter[8500](epoch[0]), train_loss=28.280, train_loss_nocon=49.754, lr=3.46E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:14:27,603 INFO     iter[8600](epoch[0]), train_loss=27.730, train_loss_nocon=47.007, lr=3.37E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:14:34,094 INFO     iter[8700](epoch[0]), train_loss=23.335, train_loss_nocon=136.937, lr=3.27E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:14:40,995 INFO     iter[8800](epoch[0]), train_loss=24.715, train_loss_nocon=31.034, lr=3.18E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:14:47,341 INFO     iter[8900](epoch[0]), train_loss=38.146, train_loss_nocon=68.506, lr=3.09E-04, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:14:53,889 INFO     iter[9000](epoch[0]), train_loss=14.873, train_loss_nocon=13.614, lr=3.00E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:15:00,653 INFO     iter[9100](epoch[0]), train_loss=25.727, train_loss_nocon=32.028, lr=2.92E-04, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:15:07,528 INFO     iter[9200](epoch[0]), train_loss=27.491, train_loss_nocon=42.464, lr=2.83E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:15:14,901 INFO     iter[9300](epoch[0]), train_loss=27.446, train_loss_nocon=29.385, lr=2.75E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:15:22,748 INFO     iter[9400](epoch[0]), train_loss=24.833, train_loss_nocon=21.454, lr=2.67E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:15:30,501 INFO     iter[9500](epoch[0]), train_loss=28.979, train_loss_nocon=25.957, lr=2.60E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:15:37,481 INFO     iter[9600](epoch[0]), train_loss=30.340, train_loss_nocon=28.804, lr=2.52E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:15:44,354 INFO     iter[9700](epoch[0]), train_loss=28.758, train_loss_nocon=27.941, lr=2.45E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:15:50,861 INFO     iter[9800](epoch[0]), train_loss=36.196, train_loss_nocon=49.173, lr=2.38E-04, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:15:57,252 INFO     iter[9900](epoch[0]), train_loss=21.341, train_loss_nocon=18.908, lr=2.32E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:16:04,156 INFO     iter[10000](epoch[0]), train_loss=18.970, train_loss_nocon=122.049, lr=2.25E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:18:16,031 INFO     validation loss: 26.78
+2020-10-04 02:18:16,031 INFO     validation acc : 23.44%
+
+2020-10-04 02:18:23,799 INFO     iter[10100](epoch[0]), train_loss=27.627, train_loss_nocon=109.509, lr=2.19E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:18:30,295 INFO     iter[10200](epoch[0]), train_loss=20.648, train_loss_nocon=22.490, lr=2.12E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:18:37,188 INFO     iter[10300](epoch[0]), train_loss=21.441, train_loss_nocon=110.344, lr=2.06E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:18:44,083 INFO     iter[10400](epoch[0]), train_loss=24.643, train_loss_nocon=21.312, lr=2.01E-04, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:18:51,137 INFO     iter[10500](epoch[0]), train_loss=25.250, train_loss_nocon=28.335, lr=1.95E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:18:57,546 INFO     iter[10600](epoch[0]), train_loss=26.143, train_loss_nocon=31.193, lr=1.89E-04, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:19:04,147 INFO     iter[10700](epoch[0]), train_loss=24.479, train_loss_nocon=27.610, lr=1.84E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:19:11,160 INFO     iter[10800](epoch[0]), train_loss=33.942, train_loss_nocon=26.629, lr=1.79E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:19:18,598 INFO     iter[10900](epoch[0]), train_loss=20.901, train_loss_nocon=22.977, lr=1.74E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:19:25,165 INFO     iter[11000](epoch[0]), train_loss=28.059, train_loss_nocon=58.889, lr=1.69E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:19:32,724 INFO     iter[11100](epoch[0]), train_loss=30.814, train_loss_nocon=28.335, lr=1.64E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:19:40,307 INFO     iter[11200](epoch[0]), train_loss=30.501, train_loss_nocon=26.738, lr=1.59E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:19:47,790 INFO     iter[11300](epoch[0]), train_loss=19.777, train_loss_nocon=25.972, lr=1.55E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:19:54,988 INFO     iter[11400](epoch[0]), train_loss=28.982, train_loss_nocon=93.343, lr=1.50E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:20:01,993 INFO     iter[11500](epoch[0]), train_loss=28.837, train_loss_nocon=25.863, lr=1.46E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:20:08,856 INFO     iter[11600](epoch[0]), train_loss=17.850, train_loss_nocon=16.712, lr=1.42E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:20:15,553 INFO     iter[11700](epoch[0]), train_loss=25.337, train_loss_nocon=24.577, lr=1.38E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:20:22,253 INFO     iter[11800](epoch[0]), train_loss=18.707, train_loss_nocon=17.004, lr=1.34E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:20:29,283 INFO     iter[11900](epoch[0]), train_loss=23.790, train_loss_nocon=37.897, lr=1.30E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:20:35,873 INFO     iter[12000](epoch[0]), train_loss=40.399, train_loss_nocon=33.472, lr=1.27E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:20:43,045 INFO     iter[12100](epoch[0]), train_loss=31.470, train_loss_nocon=86.322, lr=1.23E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:20:50,744 INFO     iter[12200](epoch[0]), train_loss=38.433, train_loss_nocon=32.941, lr=1.19E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:20:58,643 INFO     iter[12300](epoch[0]), train_loss=27.106, train_loss_nocon=43.081, lr=1.16E-04, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:21:05,771 INFO     iter[12400](epoch[0]), train_loss=27.352, train_loss_nocon=26.160, lr=1.13E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:21:12,705 INFO     iter[12500](epoch[0]), train_loss=18.248, train_loss_nocon=17.223, lr=1.10E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:23:48,273 INFO     validation loss: 24.44
+2020-10-04 02:23:48,273 INFO     validation acc : 22.41%
+
+2020-10-04 02:23:55,777 INFO     iter[12600](epoch[0]), train_loss=28.346, train_loss_nocon=25.340, lr=1.06E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:24:02,107 INFO     iter[12700](epoch[0]), train_loss=26.792, train_loss_nocon=30.589, lr=1.03E-04, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:24:08,644 INFO     iter[12800](epoch[0]), train_loss=34.374, train_loss_nocon=47.703, lr=1.01E-04, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:24:15,166 INFO     iter[12900](epoch[0]), train_loss=21.689, train_loss_nocon=20.899, lr=9.77E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:24:21,720 INFO     iter[13000](epoch[0]), train_loss=28.583, train_loss_nocon=27.058, lr=9.49E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:24:35,167 INFO     iter[13100](epoch[0]), train_loss=20.559, train_loss_nocon=21.525, lr=9.22E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:24:45,384 INFO     iter[13200](epoch[0]), train_loss=36.616, train_loss_nocon=71.407, lr=8.96E-05, data:0.06s/iter, model:0.04s/iter
+2020-10-04 02:24:55,305 INFO     iter[13300](epoch[0]), train_loss=24.589, train_loss_nocon=20.409, lr=8.70E-05, data:0.05s/iter, model:0.04s/iter
+2020-10-04 02:25:05,101 INFO     iter[13400](epoch[0]), train_loss=26.592, train_loss_nocon=65.891, lr=8.46E-05, data:0.05s/iter, model:0.05s/iter
+2020-10-04 02:25:14,217 INFO     iter[13500](epoch[0]), train_loss=22.057, train_loss_nocon=23.428, lr=8.22E-05, data:0.05s/iter, model:0.04s/iter
+2020-10-04 02:25:22,524 INFO     iter[13600](epoch[0]), train_loss=15.434, train_loss_nocon=14.119, lr=7.98E-05, data:0.04s/iter, model:0.04s/iter
+2020-10-04 02:25:30,092 INFO     iter[13700](epoch[0]), train_loss=26.161, train_loss_nocon=33.025, lr=7.76E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:25:43,359 INFO     iter[13800](epoch[0]), train_loss=21.023, train_loss_nocon=18.063, lr=7.54E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:25:56,400 INFO     iter[13900](epoch[0]), train_loss=17.742, train_loss_nocon=15.401, lr=7.32E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:26:10,172 INFO     iter[14000](epoch[0]), train_loss=34.175, train_loss_nocon=30.379, lr=7.12E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:26:23,703 INFO     iter[14100](epoch[0]), train_loss=29.050, train_loss_nocon=41.233, lr=6.91E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:26:38,390 INFO     iter[14200](epoch[0]), train_loss=23.081, train_loss_nocon=51.983, lr=6.72E-05, data:0.10s/iter, model:0.05s/iter
+2020-10-04 02:26:51,980 INFO     iter[14300](epoch[0]), train_loss=13.282, train_loss_nocon=13.129, lr=6.53E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:27:05,438 INFO     iter[14400](epoch[0]), train_loss=21.448, train_loss_nocon=32.667, lr=6.34E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:27:19,506 INFO     iter[14500](epoch[0]), train_loss=32.280, train_loss_nocon=34.594, lr=6.16E-05, data:0.10s/iter, model:0.04s/iter
+2020-10-04 02:27:33,683 INFO     iter[14600](epoch[0]), train_loss=23.152, train_loss_nocon=23.463, lr=5.99E-05, data:0.10s/iter, model:0.04s/iter
+2020-10-04 02:27:47,173 INFO     iter[14700](epoch[0]), train_loss=24.387, train_loss_nocon=20.232, lr=5.82E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:27:59,011 INFO     iter[14800](epoch[0]), train_loss=19.010, train_loss_nocon=16.813, lr=5.65E-05, data:0.08s/iter, model:0.04s/iter
+2020-10-04 02:28:11,871 INFO     iter[14900](epoch[0]), train_loss=20.463, train_loss_nocon=17.549, lr=5.49E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:28:25,414 INFO     iter[15000](epoch[0]), train_loss=30.336, train_loss_nocon=29.812, lr=5.34E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:30:38,196 INFO     validation loss: 25.07
+2020-10-04 02:30:38,196 INFO     validation acc : 22.35%
+
+2020-10-04 02:30:51,976 INFO     iter[15100](epoch[0]), train_loss=28.204, train_loss_nocon=26.502, lr=5.18E-05, data:0.08s/iter, model:0.05s/iter
+2020-10-04 02:31:05,642 INFO     iter[15200](epoch[0]), train_loss=25.031, train_loss_nocon=26.044, lr=5.04E-05, data:0.09s/iter, model:0.05s/iter
+2020-10-04 02:31:18,123 INFO     iter[15300](epoch[0]), train_loss=25.279, train_loss_nocon=26.549, lr=4.89E-05, data:0.08s/iter, model:0.05s/iter
+2020-10-04 02:31:31,217 INFO     iter[15400](epoch[0]), train_loss=16.219, train_loss_nocon=14.072, lr=4.76E-05, data:0.08s/iter, model:0.04s/iter
+2020-10-04 02:31:45,342 INFO     iter[15500](epoch[0]), train_loss=30.784, train_loss_nocon=34.138, lr=4.62E-05, data:0.09s/iter, model:0.05s/iter
+2020-10-04 02:31:59,087 INFO     iter[15600](epoch[0]), train_loss=24.685, train_loss_nocon=35.643, lr=4.49E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:32:11,955 INFO     iter[15700](epoch[0]), train_loss=23.313, train_loss_nocon=32.893, lr=4.36E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:32:25,530 INFO     iter[15800](epoch[0]), train_loss=25.108, train_loss_nocon=65.892, lr=4.24E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:32:38,956 INFO     iter[15900](epoch[0]), train_loss=24.593, train_loss_nocon=25.824, lr=4.12E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:32:51,848 INFO     iter[16000](epoch[0]), train_loss=26.067, train_loss_nocon=25.709, lr=4.00E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:33:05,382 INFO     iter[16100](epoch[0]), train_loss=24.061, train_loss_nocon=20.894, lr=3.89E-05, data:0.09s/iter, model:0.04s/iter
+2020-10-04 02:33:14,884 INFO     iter[16200](epoch[0]), train_loss=24.285, train_loss_nocon=20.824, lr=3.78E-05, data:0.05s/iter, model:0.05s/iter
+2020-10-04 02:33:22,490 INFO     iter[16300](epoch[0]), train_loss=46.020, train_loss_nocon=46.121, lr=3.67E-05, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:33:29,652 INFO     iter[16400](epoch[0]), train_loss=21.150, train_loss_nocon=18.630, lr=3.57E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:33:36,773 INFO     iter[16500](epoch[0]), train_loss=25.279, train_loss_nocon=39.543, lr=3.46E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:33:43,171 INFO     iter[16600](epoch[0]), train_loss=22.971, train_loss_nocon=19.972, lr=3.37E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:33:49,556 INFO     iter[16700](epoch[0]), train_loss=24.725, train_loss_nocon=35.608, lr=3.27E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:33:56,395 INFO     iter[16800](epoch[0]), train_loss=25.662, train_loss_nocon=21.928, lr=3.18E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:34:03,026 INFO     iter[16900](epoch[0]), train_loss=28.677, train_loss_nocon=25.273, lr=3.09E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:34:09,818 INFO     iter[17000](epoch[1]), train_loss=19.139, train_loss_nocon=18.089, lr=3.00E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:34:16,591 INFO     iter[17100](epoch[1]), train_loss=12.864, train_loss_nocon=10.980, lr=2.92E-05, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:34:23,756 INFO     iter[17200](epoch[1]), train_loss=20.809, train_loss_nocon=33.451, lr=2.83E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:34:31,012 INFO     iter[17300](epoch[1]), train_loss=22.290, train_loss_nocon=41.144, lr=2.75E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:34:38,347 INFO     iter[17400](epoch[1]), train_loss=18.530, train_loss_nocon=25.209, lr=2.67E-05, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:34:45,538 INFO     iter[17500](epoch[1]), train_loss=22.869, train_loss_nocon=19.948, lr=2.60E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:36:58,330 INFO     validation loss: 24.00
+2020-10-04 02:36:58,331 INFO     validation acc : 22.57%
+
+2020-10-04 02:37:04,557 INFO     iter[17600](epoch[1]), train_loss=22.022, train_loss_nocon=33.015, lr=2.52E-05, data:0.03s/iter, model:0.03s/iter
+2020-10-04 02:37:10,138 INFO     iter[17700](epoch[1]), train_loss=13.572, train_loss_nocon=22.592, lr=2.45E-05, data:0.02s/iter, model:0.03s/iter
+2020-10-04 02:37:16,819 INFO     iter[17800](epoch[1]), train_loss=21.886, train_loss_nocon=21.520, lr=2.38E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:37:23,445 INFO     iter[17900](epoch[1]), train_loss=18.046, train_loss_nocon=15.111, lr=2.32E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:37:30,056 INFO     iter[18000](epoch[1]), train_loss=15.079, train_loss_nocon=12.847, lr=2.25E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:37:36,673 INFO     iter[18100](epoch[1]), train_loss=21.297, train_loss_nocon=18.546, lr=2.19E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:37:44,516 INFO     iter[18200](epoch[1]), train_loss=25.605, train_loss_nocon=39.077, lr=2.12E-05, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:37:50,243 INFO     iter[18300](epoch[1]), train_loss=22.713, train_loss_nocon=19.862, lr=2.06E-05, data:0.02s/iter, model:0.03s/iter
+2020-10-04 02:37:57,500 INFO     iter[18400](epoch[1]), train_loss=23.412, train_loss_nocon=51.269, lr=2.01E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:38:04,685 INFO     iter[18500](epoch[1]), train_loss=24.287, train_loss_nocon=66.758, lr=1.95E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:38:11,092 INFO     iter[18600](epoch[1]), train_loss=25.204, train_loss_nocon=31.340, lr=1.89E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:38:17,505 INFO     iter[18700](epoch[1]), train_loss=16.553, train_loss_nocon=17.441, lr=1.84E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:38:24,297 INFO     iter[18800](epoch[1]), train_loss=18.411, train_loss_nocon=24.157, lr=1.79E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:38:30,925 INFO     iter[18900](epoch[1]), train_loss=23.199, train_loss_nocon=19.919, lr=1.74E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:38:37,714 INFO     iter[19000](epoch[1]), train_loss=23.676, train_loss_nocon=24.841, lr=1.69E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:38:45,263 INFO     iter[19100](epoch[1]), train_loss=26.184, train_loss_nocon=25.988, lr=1.64E-05, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:38:53,046 INFO     iter[19200](epoch[1]), train_loss=27.524, train_loss_nocon=39.144, lr=1.59E-05, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:39:00,445 INFO     iter[19300](epoch[1]), train_loss=21.607, train_loss_nocon=18.785, lr=1.55E-05, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:39:07,650 INFO     iter[19400](epoch[1]), train_loss=26.116, train_loss_nocon=125.530, lr=1.50E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:39:15,138 INFO     iter[19500](epoch[1]), train_loss=23.393, train_loss_nocon=46.077, lr=1.46E-05, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:39:21,779 INFO     iter[19600](epoch[1]), train_loss=24.125, train_loss_nocon=21.625, lr=1.42E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:39:28,555 INFO     iter[19700](epoch[1]), train_loss=23.721, train_loss_nocon=22.298, lr=1.38E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:39:35,310 INFO     iter[19800](epoch[1]), train_loss=22.190, train_loss_nocon=19.272, lr=1.34E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:39:41,705 INFO     iter[19900](epoch[1]), train_loss=27.250, train_loss_nocon=49.685, lr=1.30E-05, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:39:48,290 INFO     iter[20000](epoch[1]), train_loss=21.909, train_loss_nocon=23.024, lr=1.27E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:42:02,792 INFO     validation loss: 24.12
+2020-10-04 02:42:02,792 INFO     validation acc : 22.44%
+
+2020-10-04 02:42:10,759 INFO     iter[20100](epoch[1]), train_loss=25.522, train_loss_nocon=27.406, lr=1.23E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:42:18,207 INFO     iter[20200](epoch[1]), train_loss=29.579, train_loss_nocon=25.653, lr=1.19E-05, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:42:25,397 INFO     iter[20300](epoch[1]), train_loss=20.249, train_loss_nocon=18.920, lr=1.16E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:42:33,198 INFO     iter[20400](epoch[1]), train_loss=25.641, train_loss_nocon=32.413, lr=1.13E-05, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:42:40,063 INFO     iter[20500](epoch[1]), train_loss=33.102, train_loss_nocon=27.992, lr=1.10E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:42:46,516 INFO     iter[20600](epoch[1]), train_loss=18.441, train_loss_nocon=15.506, lr=1.06E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:42:52,855 INFO     iter[20700](epoch[1]), train_loss=18.748, train_loss_nocon=16.331, lr=1.03E-05, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:42:59,413 INFO     iter[20800](epoch[1]), train_loss=14.873, train_loss_nocon=37.949, lr=1.01E-05, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:43:05,830 INFO     iter[20900](epoch[1]), train_loss=14.180, train_loss_nocon=16.646, lr=9.77E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:43:12,319 INFO     iter[21000](epoch[1]), train_loss=26.024, train_loss_nocon=56.568, lr=9.49E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:43:19,463 INFO     iter[21100](epoch[1]), train_loss=23.050, train_loss_nocon=42.619, lr=9.22E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:43:26,510 INFO     iter[21200](epoch[1]), train_loss=18.161, train_loss_nocon=17.955, lr=8.96E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:43:33,466 INFO     iter[21300](epoch[1]), train_loss=23.714, train_loss_nocon=26.459, lr=8.70E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:43:41,170 INFO     iter[21400](epoch[1]), train_loss=22.963, train_loss_nocon=44.370, lr=8.46E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:43:49,125 INFO     iter[21500](epoch[1]), train_loss=26.881, train_loss_nocon=36.435, lr=8.22E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:43:56,062 INFO     iter[21600](epoch[1]), train_loss=28.402, train_loss_nocon=24.588, lr=7.98E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:44:02,922 INFO     iter[21700](epoch[1]), train_loss=21.308, train_loss_nocon=18.362, lr=7.76E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:44:09,865 INFO     iter[21800](epoch[1]), train_loss=28.688, train_loss_nocon=26.221, lr=7.54E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:44:16,480 INFO     iter[21900](epoch[1]), train_loss=22.097, train_loss_nocon=19.958, lr=7.32E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:44:23,047 INFO     iter[22000](epoch[1]), train_loss=23.099, train_loss_nocon=32.161, lr=7.12E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:44:30,994 INFO     iter[22100](epoch[1]), train_loss=25.226, train_loss_nocon=73.504, lr=6.91E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:44:37,670 INFO     iter[22200](epoch[1]), train_loss=12.470, train_loss_nocon=11.271, lr=6.72E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:44:44,425 INFO     iter[22300](epoch[1]), train_loss=22.791, train_loss_nocon=19.812, lr=6.53E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:44:51,856 INFO     iter[22400](epoch[1]), train_loss=12.461, train_loss_nocon=10.709, lr=6.34E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:44:59,258 INFO     iter[22500](epoch[1]), train_loss=24.172, train_loss_nocon=24.355, lr=6.16E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:47:12,963 INFO     validation loss: 23.86
+2020-10-04 02:47:12,963 INFO     validation acc : 22.61%
+
+2020-10-04 02:47:20,389 INFO     iter[22600](epoch[1]), train_loss=26.838, train_loss_nocon=27.402, lr=5.99E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:47:27,022 INFO     iter[22700](epoch[1]), train_loss=20.748, train_loss_nocon=45.087, lr=5.82E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:47:33,334 INFO     iter[22800](epoch[1]), train_loss=32.571, train_loss_nocon=27.548, lr=5.65E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:47:39,875 INFO     iter[22900](epoch[1]), train_loss=16.530, train_loss_nocon=18.069, lr=5.49E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:47:46,627 INFO     iter[23000](epoch[1]), train_loss=19.674, train_loss_nocon=17.376, lr=5.34E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:47:53,960 INFO     iter[23100](epoch[1]), train_loss=17.866, train_loss_nocon=28.790, lr=5.18E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:48:01,616 INFO     iter[23200](epoch[1]), train_loss=18.166, train_loss_nocon=15.593, lr=5.04E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:48:09,170 INFO     iter[23300](epoch[1]), train_loss=22.876, train_loss_nocon=45.849, lr=4.89E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:48:18,244 INFO     iter[23400](epoch[1]), train_loss=32.247, train_loss_nocon=29.114, lr=4.76E-06, data:0.03s/iter, model:0.06s/iter
+2020-10-04 02:48:27,327 INFO     iter[23500](epoch[1]), train_loss=20.322, train_loss_nocon=17.495, lr=4.62E-06, data:0.03s/iter, model:0.06s/iter
+2020-10-04 02:48:35,154 INFO     iter[23600](epoch[1]), train_loss=30.945, train_loss_nocon=26.309, lr=4.49E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:48:41,838 INFO     iter[23700](epoch[1]), train_loss=20.353, train_loss_nocon=17.321, lr=4.36E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:48:48,879 INFO     iter[23800](epoch[1]), train_loss=25.225, train_loss_nocon=21.961, lr=4.24E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:48:55,792 INFO     iter[23900](epoch[1]), train_loss=17.053, train_loss_nocon=22.710, lr=4.12E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:49:02,398 INFO     iter[24000](epoch[1]), train_loss=21.335, train_loss_nocon=100.472, lr=4.00E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:49:09,391 INFO     iter[24100](epoch[1]), train_loss=29.584, train_loss_nocon=25.922, lr=3.89E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:49:16,821 INFO     iter[24200](epoch[1]), train_loss=21.448, train_loss_nocon=26.167, lr=3.78E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:49:24,375 INFO     iter[24300](epoch[1]), train_loss=20.356, train_loss_nocon=106.115, lr=3.67E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:49:31,211 INFO     iter[24400](epoch[1]), train_loss=26.502, train_loss_nocon=24.667, lr=3.57E-06, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:49:38,436 INFO     iter[24500](epoch[1]), train_loss=30.302, train_loss_nocon=24.777, lr=3.46E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:49:45,023 INFO     iter[24600](epoch[1]), train_loss=18.347, train_loss_nocon=16.587, lr=3.37E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:49:51,618 INFO     iter[24700](epoch[1]), train_loss=15.060, train_loss_nocon=19.411, lr=3.27E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:49:58,120 INFO     iter[24800](epoch[1]), train_loss=16.244, train_loss_nocon=13.505, lr=3.18E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:50:04,687 INFO     iter[24900](epoch[1]), train_loss=25.712, train_loss_nocon=27.288, lr=3.09E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:50:11,132 INFO     iter[25000](epoch[1]), train_loss=23.368, train_loss_nocon=51.116, lr=3.00E-06, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:52:25,240 INFO     validation loss: 23.88
+2020-10-04 02:52:25,240 INFO     validation acc : 22.65%
+
+2020-10-04 02:52:33,306 INFO     iter[25100](epoch[1]), train_loss=20.098, train_loss_nocon=16.517, lr=2.92E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:52:40,776 INFO     iter[25200](epoch[1]), train_loss=18.323, train_loss_nocon=41.105, lr=2.83E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:52:48,323 INFO     iter[25300](epoch[1]), train_loss=27.678, train_loss_nocon=28.204, lr=2.75E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:52:55,549 INFO     iter[25400](epoch[1]), train_loss=20.944, train_loss_nocon=62.710, lr=2.67E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:53:02,577 INFO     iter[25500](epoch[1]), train_loss=14.031, train_loss_nocon=11.967, lr=2.60E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:53:09,309 INFO     iter[25600](epoch[1]), train_loss=28.560, train_loss_nocon=25.157, lr=2.52E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:53:15,879 INFO     iter[25700](epoch[1]), train_loss=21.742, train_loss_nocon=40.533, lr=2.45E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:53:22,577 INFO     iter[25800](epoch[1]), train_loss=21.148, train_loss_nocon=18.323, lr=2.38E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:53:29,296 INFO     iter[25900](epoch[1]), train_loss=16.437, train_loss_nocon=14.193, lr=2.32E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:53:36,167 INFO     iter[26000](epoch[1]), train_loss=25.565, train_loss_nocon=43.230, lr=2.25E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:53:43,029 INFO     iter[26100](epoch[1]), train_loss=23.450, train_loss_nocon=26.891, lr=2.19E-06, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:53:49,886 INFO     iter[26200](epoch[1]), train_loss=21.918, train_loss_nocon=30.851, lr=2.12E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:53:57,171 INFO     iter[26300](epoch[1]), train_loss=25.103, train_loss_nocon=24.995, lr=2.06E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:54:04,267 INFO     iter[26400](epoch[1]), train_loss=36.227, train_loss_nocon=50.303, lr=2.01E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:54:11,259 INFO     iter[26500](epoch[1]), train_loss=25.193, train_loss_nocon=28.666, lr=1.95E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:54:19,011 INFO     iter[26600](epoch[1]), train_loss=30.344, train_loss_nocon=51.373, lr=1.89E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:54:26,124 INFO     iter[26700](epoch[1]), train_loss=22.725, train_loss_nocon=19.333, lr=1.84E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:54:33,164 INFO     iter[26800](epoch[1]), train_loss=22.417, train_loss_nocon=22.252, lr=1.79E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:54:39,877 INFO     iter[26900](epoch[1]), train_loss=14.153, train_loss_nocon=32.540, lr=1.74E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:54:47,310 INFO     iter[27000](epoch[1]), train_loss=19.968, train_loss_nocon=18.321, lr=1.69E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:54:54,477 INFO     iter[27100](epoch[1]), train_loss=22.107, train_loss_nocon=18.363, lr=1.64E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:55:01,632 INFO     iter[27200](epoch[1]), train_loss=16.931, train_loss_nocon=17.445, lr=1.59E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:55:08,625 INFO     iter[27300](epoch[1]), train_loss=22.665, train_loss_nocon=45.267, lr=1.55E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:55:15,424 INFO     iter[27400](epoch[1]), train_loss=21.750, train_loss_nocon=30.369, lr=1.50E-06, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:55:22,478 INFO     iter[27500](epoch[1]), train_loss=20.943, train_loss_nocon=28.074, lr=1.46E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:57:36,245 INFO     validation loss: 23.84
+2020-10-04 02:57:36,246 INFO     validation acc : 22.74%
+
+2020-10-04 02:57:43,293 INFO     iter[27600](epoch[1]), train_loss=18.579, train_loss_nocon=18.991, lr=1.42E-06, data:0.02s/iter, model:0.04s/iter
+2020-10-04 02:57:50,323 INFO     iter[27700](epoch[1]), train_loss=28.113, train_loss_nocon=46.077, lr=1.38E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:57:56,829 INFO     iter[27800](epoch[1]), train_loss=38.982, train_loss_nocon=37.629, lr=1.34E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:58:03,291 INFO     iter[27900](epoch[1]), train_loss=30.527, train_loss_nocon=27.526, lr=1.30E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:58:10,136 INFO     iter[28000](epoch[1]), train_loss=21.887, train_loss_nocon=19.150, lr=1.27E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:58:17,436 INFO     iter[28100](epoch[1]), train_loss=30.380, train_loss_nocon=27.961, lr=1.23E-06, data:0.03s/iter, model:0.05s/iter
+2020-10-04 02:58:24,756 INFO     iter[28200](epoch[1]), train_loss=26.740, train_loss_nocon=39.690, lr=1.19E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:58:31,906 INFO     iter[28300](epoch[1]), train_loss=17.275, train_loss_nocon=17.529, lr=1.16E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:58:39,162 INFO     iter[28400](epoch[1]), train_loss=10.595, train_loss_nocon=9.302, lr=1.13E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:58:46,271 INFO     iter[28500](epoch[1]), train_loss=26.885, train_loss_nocon=21.991, lr=1.10E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:58:53,183 INFO     iter[28600](epoch[1]), train_loss=31.060, train_loss_nocon=40.953, lr=1.06E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:59:00,100 INFO     iter[28700](epoch[1]), train_loss=20.680, train_loss_nocon=20.761, lr=1.03E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:59:06,802 INFO     iter[28800](epoch[1]), train_loss=22.164, train_loss_nocon=18.987, lr=1.01E-06, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:59:13,872 INFO     iter[28900](epoch[1]), train_loss=20.394, train_loss_nocon=23.600, lr=9.77E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:59:20,502 INFO     iter[29000](epoch[1]), train_loss=24.588, train_loss_nocon=30.833, lr=9.49E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:59:27,719 INFO     iter[29100](epoch[1]), train_loss=29.277, train_loss_nocon=27.555, lr=9.22E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:59:34,985 INFO     iter[29200](epoch[1]), train_loss=15.927, train_loss_nocon=13.702, lr=8.96E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:59:42,021 INFO     iter[29300](epoch[1]), train_loss=20.169, train_loss_nocon=17.958, lr=8.70E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:59:49,092 INFO     iter[29400](epoch[1]), train_loss=16.426, train_loss_nocon=14.285, lr=8.46E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 02:59:56,791 INFO     iter[29500](epoch[1]), train_loss=27.979, train_loss_nocon=51.738, lr=8.22E-07, data:0.03s/iter, model:0.05s/iter
+2020-10-04 03:00:03,296 INFO     iter[29600](epoch[1]), train_loss=22.657, train_loss_nocon=23.395, lr=7.98E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:00:09,824 INFO     iter[29700](epoch[1]), train_loss=29.012, train_loss_nocon=76.194, lr=7.76E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:00:16,345 INFO     iter[29800](epoch[1]), train_loss=21.767, train_loss_nocon=19.559, lr=7.54E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:00:22,847 INFO     iter[29900](epoch[1]), train_loss=10.605, train_loss_nocon=9.213, lr=7.32E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:00:29,522 INFO     iter[30000](epoch[1]), train_loss=38.597, train_loss_nocon=44.494, lr=7.12E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:02:43,839 INFO     validation loss: 23.84
+2020-10-04 03:02:43,840 INFO     validation acc : 22.74%
+
+2020-10-04 03:02:51,779 INFO     iter[30100](epoch[1]), train_loss=21.612, train_loss_nocon=30.597, lr=6.91E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:02:59,074 INFO     iter[30200](epoch[1]), train_loss=16.288, train_loss_nocon=18.913, lr=6.72E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:03:06,389 INFO     iter[30300](epoch[1]), train_loss=30.139, train_loss_nocon=25.494, lr=6.53E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:03:13,515 INFO     iter[30400](epoch[1]), train_loss=18.074, train_loss_nocon=26.534, lr=6.34E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:03:20,508 INFO     iter[30500](epoch[1]), train_loss=23.199, train_loss_nocon=30.613, lr=6.16E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:03:27,363 INFO     iter[30600](epoch[1]), train_loss=22.121, train_loss_nocon=18.472, lr=5.99E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:03:33,996 INFO     iter[30700](epoch[1]), train_loss=24.856, train_loss_nocon=21.728, lr=5.82E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:03:40,618 INFO     iter[30800](epoch[1]), train_loss=26.366, train_loss_nocon=25.265, lr=5.65E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:03:47,657 INFO     iter[30900](epoch[1]), train_loss=22.986, train_loss_nocon=19.565, lr=5.49E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:03:54,398 INFO     iter[31000](epoch[1]), train_loss=23.541, train_loss_nocon=20.158, lr=5.34E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:04:01,203 INFO     iter[31100](epoch[1]), train_loss=28.000, train_loss_nocon=32.328, lr=5.18E-07, data:0.02s/iter, model:0.04s/iter
+2020-10-04 03:04:08,258 INFO     iter[31200](epoch[1]), train_loss=19.746, train_loss_nocon=17.536, lr=5.04E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:04:15,369 INFO     iter[31300](epoch[1]), train_loss=27.487, train_loss_nocon=23.781, lr=4.89E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:04:22,542 INFO     iter[31400](epoch[1]), train_loss=27.579, train_loss_nocon=52.703, lr=4.76E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:04:30,043 INFO     iter[31500](epoch[1]), train_loss=21.854, train_loss_nocon=51.791, lr=4.62E-07, data:0.03s/iter, model:0.04s/iter
+2020-10-04 03:04:36,572 INFO     iter[31600](epoch[1]), train_loss=25.046, train_loss_nocon=27.689, lr=4.49E-07, data:0.03s/iter, model:0.04s/iter

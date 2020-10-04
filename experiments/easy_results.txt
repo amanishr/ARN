@@ -1,5 +1,21 @@
+[Random]: [refcoco_unc][val], id[Random]'s acc is 15.60% - 80% images with less than 15 anns
+[Random]: [refcoco_unc][testA], id[Random]'s acc is 12.22% - 80% images with less than 17 anns
+[Random]: [refcoco_unc][testB], id[Random]'s acc is 20.12% - 80% images with less than 11 anns
 [base]: [refcoco_unc][testB], id[base]'s acc is 15.07%
 [base]: [refcoco_unc][testB], id[base]'s acc is 32.48%
 [base]: [refcoco_unc][testA], id[base]'s acc is 34.22%
 [base]: [refcoco_unc][val], id[base]'s acc is 32.67%
 [sigmoid]: [refcoco_unc][testA], id[sigmoid]'s acc is 35.00%
+[minmax2]: [refcoco_unc][testA], id[minmax2]'s acc is 33.48%
+[minmax2]: [refcoco_unc][testB], id[minmax2]'s acc is 30.87%
+[sigmoid]: [refcoco_unc][testA], id[sigmoid]'s acc is 0.02%
+[sigmoid]: [refcoco_unc][testA], id[sigmoid]'s acc is 34.15% - not IOU
+Accuracy of prediction 0 is 34.15
+Accuracy of prediction 1 is 31.71
+Accuracy of prediction 2 is 16.53
+[minmax4]: [refcoco_unc][testA], id[minmax4]'s acc is 25.56%
+Accuracy of prediction 0 is 25.56
+Accuracy of prediction 1 is 19.16
+Accuracy of prediction 2 is 12.46[minmax2]: [refcoco_unc][testA], id[minmax2]'s acc is 32.70%
+[minmax2]: [refcoco_unc][testA], id[minmax2]'s acc is 32.70%
+[minmax2]: [refcoco_unc][testA], id[minmax2]'s acc is 32.70%

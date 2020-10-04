@@ -58,7 +58,7 @@ def parse_opt():
     # Optimization: General
     parser.add_argument('--max_iters', type=int, default=30000, help='max number of iterations to run')
     parser.add_argument('--sample_ratio', type=float, default=0.3, help='ratio of same-type objects over different-type objects')
-    parser.add_argument('--batch_size', type=int, default=5, help='batch size in number of images per batch')
+#     parser.add_argument('--batch_size', type=int, default=5, help='batch size in number of images per batch')
     parser.add_argument('--grad_clip', type=float, default=0.1, help='clip gradients at this value')
     parser.add_argument('--seq_per_ref', type=int, default=3, help='number of expressions per object during training')
     parser.add_argument('--learning_rate_decay_start', type=int, default=8000, help='at what iter to start decaying learning rate')
